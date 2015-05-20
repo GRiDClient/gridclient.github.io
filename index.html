@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GRiD</title>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/callouts.css">
+	    <script src="scripts/angular.min.js"></script>
+	    <script src="scripts/app.js"></script>
+	</head>
+	<body ng-app="downloadsApp" ng-controller="downloads">
+		<div class="container">
+			<h1>Hi, I'm GRiD!</h1>
+	        <p>Lorem, ipsum, blah</p>
+
+			<div class="bs-callout bs-callout-info" ng-show="loading">
+				<h4>Just one second</h4>
+				We're querying our download server.
+			</div>
+
+	        <div class="ui list" ng-hide="loading || releases.length == 0">
+	        	<div ng-repeat="release in releases track by $index" class="bs-callout bs-callout-{{ release.prerelease ? 'warning' : 'success' }}">
+	        		<h4>{{ release.name }} v{{ release.version }}</h4>
+	        		{{ release.description }}
+	        	</div>
+	        </div>
+
+	        <div class="bs-callout bs-callout-danger" ng-show="releases.length == 0 && !loading">
+				<h4>No releases :(</h4>
+				We're working hard, we swear!
+			</div>
+		</div>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <script src="scripts/bootstrap.min.js"></script>
+	</body>
+</html>
