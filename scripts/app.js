@@ -35,7 +35,7 @@ app.controller('downloads', function($scope, $timeout, Releases) {
 					description: data.body
 				};
 
-				$scope.releases.unshift(release);
+				$scope.releases.push(release);
 			});
 		});
 
