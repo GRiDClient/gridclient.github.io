@@ -22,7 +22,7 @@
 			</div>
 
 	        <div class="ui list" ng-hide="loading || releases.length == 0">
-	        	<div ng-repeat="release in releases track by $index" class="bs-callout bs-callout-{{ release.prerelease ? 'warning' : 'success' }}">
+	        	<div ng-repeat="release in releases track by $index | limitTo:8" class="bs-callout bs-callout-{{ release.prerelease ? 'warning' : 'success' }}">
 	        		<h4>{{ release.name }} v{{ release.version }}</h4>
 	        		{{ release.description }}
 	        	</div>
